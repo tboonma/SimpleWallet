@@ -11,6 +11,25 @@
 		E90EE3962BECD0BE00C800DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3952BECD0BE00C800DE /* ContentView.swift */; };
 		E90EE3982BECD0C200C800DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90EE3972BECD0C200C800DE /* Assets.xcassets */; };
 		E90EE39B2BECD0C200C800DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90EE39A2BECD0C200C800DE /* Preview Assets.xcassets */; };
+		E90EE3A62BECD1E600C800DE /* IntroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3A52BECD1E600C800DE /* IntroScreen.swift */; };
+		E90EE3A92BECD3A000C800DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3A82BECD3A000C800DE /* Constants.swift */; };
+		E90EE3AB2BECD86C00C800DE /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3AA2BECD86C00C800DE /* Tab.swift */; };
+		E90EE3AD2BECF94B00C800DE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3AC2BECF94B00C800DE /* Category.swift */; };
+		E90EE3AF2BECF98000C800DE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3AE2BECF98000C800DE /* Transaction.swift */; };
+		E90EE3B12BECF9FF00C800DE /* TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3B02BECF9FF00C800DE /* TintColor.swift */; };
+		E90EE3B42BECFBF500C800DE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3B32BECFBF500C800DE /* Home.swift */; };
+		E90EE3B62BECFC0100C800DE /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3B52BECFC0100C800DE /* Transactions.swift */; };
+		E90EE3B92BECFC0F00C800DE /* Budgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3B82BECFC0F00C800DE /* Budgets.swift */; };
+		E90EE3BC2BECFC1E00C800DE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3BB2BECFC1E00C800DE /* Settings.swift */; };
+		E90EE3BE2BED003A00C800DE /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3BD2BED003A00C800DE /* View+Extensions.swift */; };
+		E90EE3C02BED179400C800DE /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3BF2BED179400C800DE /* Date+Extensions.swift */; };
+		E90EE3C32BED19B500C800DE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3C22BED19B500C800DE /* CardView.swift */; };
+		E90EE3CF2BEF535400C800DE /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3CE2BEF535400C800DE /* TransactionCardView.swift */; };
+		E90EE3D22BEF684A00C800DE /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3D12BEF684A00C800DE /* SwipeAction.swift */; };
+		E90EE3D72BEFD0E200C800DE /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3D62BEFD0E200C800DE /* NewTransactionView.swift */; };
+		E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3D82BEFF4CC00C800DE /* FilterTransactionView.swift */; };
+		E90EE3DB2BF0006400C800DE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3DA2BF0006400C800DE /* Account.swift */; };
+		E90EE3DD2BF001EF00C800DE /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3DC2BF001EF00C800DE /* Wallet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +38,25 @@
 		E90EE3952BECD0BE00C800DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E90EE3972BECD0C200C800DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E90EE39A2BECD0C200C800DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E90EE3A52BECD1E600C800DE /* IntroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreen.swift; sourceTree = "<group>"; };
+		E90EE3A82BECD3A000C800DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E90EE3AA2BECD86C00C800DE /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		E90EE3AC2BECF94B00C800DE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E90EE3AE2BECF98000C800DE /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E90EE3B02BECF9FF00C800DE /* TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColor.swift; sourceTree = "<group>"; };
+		E90EE3B32BECFBF500C800DE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E90EE3B52BECFC0100C800DE /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		E90EE3B82BECFC0F00C800DE /* Budgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budgets.swift; sourceTree = "<group>"; };
+		E90EE3BB2BECFC1E00C800DE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		E90EE3BD2BED003A00C800DE /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E90EE3BF2BED179400C800DE /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E90EE3C22BED19B500C800DE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E90EE3CE2BEF535400C800DE /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
+		E90EE3D12BEF684A00C800DE /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		E90EE3D62BEFD0E200C800DE /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
+		E90EE3D82BEFF4CC00C800DE /* FilterTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTransactionView.swift; sourceTree = "<group>"; };
+		E90EE3DA2BF0006400C800DE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		E90EE3DC2BF001EF00C800DE /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +89,10 @@
 		E90EE3922BECD0BE00C800DE /* SimpleWallet */ = {
 			isa = PBXGroup;
 			children = (
+				E90EE3C42BED3ED200C800DE /* Icons */,
+				E90EE3A72BECD38300C800DE /* Utils */,
+				E90EE3A22BECD17900C800DE /* Model */,
+				E90EE3A12BECD17000C800DE /* View */,
 				E90EE3932BECD0BE00C800DE /* SimpleWalletApp.swift */,
 				E90EE3952BECD0BE00C800DE /* ContentView.swift */,
 				E90EE3972BECD0C200C800DE /* Assets.xcassets */,
@@ -65,6 +107,101 @@
 				E90EE39A2BECD0C200C800DE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E90EE3A12BECD17000C800DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3D52BEFD0D300C800DE /* Pages */,
+				E90EE3CB2BED475C00C800DE /* Components */,
+				E90EE3C12BED19A900C800DE /* Utils */,
+				E90EE3B22BECFBDD00C800DE /* TabViews */,
+				E90EE3A52BECD1E600C800DE /* IntroScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E90EE3A22BECD17900C800DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3E42BF003F400C800DE /* Wallet */,
+				E90EE3AA2BECD86C00C800DE /* Tab.swift */,
+				E90EE3AC2BECF94B00C800DE /* Category.swift */,
+				E90EE3AE2BECF98000C800DE /* Transaction.swift */,
+				E90EE3B02BECF9FF00C800DE /* TintColor.swift */,
+				E90EE3DA2BF0006400C800DE /* Account.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E90EE3A72BECD38300C800DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3A82BECD3A000C800DE /* Constants.swift */,
+				E90EE3BD2BED003A00C800DE /* View+Extensions.swift */,
+				E90EE3BF2BED179400C800DE /* Date+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E90EE3B22BECFBDD00C800DE /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3D32BEFCAE200C800DE /* Settings */,
+				E90EE3B32BECFBF500C800DE /* Home.swift */,
+				E90EE3B52BECFC0100C800DE /* Transactions.swift */,
+				E90EE3B82BECFC0F00C800DE /* Budgets.swift */,
+				E90EE3BB2BECFC1E00C800DE /* Settings.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		E90EE3C12BED19A900C800DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3C22BED19B500C800DE /* CardView.swift */,
+				E90EE3CE2BEF535400C800DE /* TransactionCardView.swift */,
+				E90EE3D12BEF684A00C800DE /* SwipeAction.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E90EE3C42BED3ED200C800DE /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		E90EE3CB2BED475C00C800DE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E90EE3D32BEFCAE200C800DE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E90EE3D52BEFD0D300C800DE /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3D62BEFD0E200C800DE /* NewTransactionView.swift */,
+				E90EE3D82BEFF4CC00C800DE /* FilterTransactionView.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		E90EE3E42BF003F400C800DE /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				E90EE3DC2BF001EF00C800DE /* Wallet.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +274,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90EE3B62BECFC0100C800DE /* Transactions.swift in Sources */,
+				E90EE3B12BECF9FF00C800DE /* TintColor.swift in Sources */,
+				E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */,
+				E90EE3AF2BECF98000C800DE /* Transaction.swift in Sources */,
+				E90EE3B92BECFC0F00C800DE /* Budgets.swift in Sources */,
+				E90EE3DB2BF0006400C800DE /* Account.swift in Sources */,
+				E90EE3C32BED19B500C800DE /* CardView.swift in Sources */,
+				E90EE3D22BEF684A00C800DE /* SwipeAction.swift in Sources */,
+				E90EE3D72BEFD0E200C800DE /* NewTransactionView.swift in Sources */,
 				E90EE3962BECD0BE00C800DE /* ContentView.swift in Sources */,
+				E90EE3A62BECD1E600C800DE /* IntroScreen.swift in Sources */,
+				E90EE3BC2BECFC1E00C800DE /* Settings.swift in Sources */,
+				E90EE3B42BECFBF500C800DE /* Home.swift in Sources */,
+				E90EE3AB2BECD86C00C800DE /* Tab.swift in Sources */,
+				E90EE3C02BED179400C800DE /* Date+Extensions.swift in Sources */,
+				E90EE3DD2BF001EF00C800DE /* Wallet.swift in Sources */,
+				E90EE3BE2BED003A00C800DE /* View+Extensions.swift in Sources */,
 				E90EE3942BECD0BE00C800DE /* SimpleWalletApp.swift in Sources */,
+				E90EE3A92BECD3A000C800DE /* Constants.swift in Sources */,
+				E90EE3AD2BECF94B00C800DE /* Category.swift in Sources */,
+				E90EE3CF2BEF535400C800DE /* TransactionCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleWallet/Preview Content\"";
@@ -278,8 +435,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,6 +445,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tawanb.SimpleWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -298,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleWallet/Preview Content\"";
@@ -307,8 +467,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +477,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tawanb.SimpleWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
