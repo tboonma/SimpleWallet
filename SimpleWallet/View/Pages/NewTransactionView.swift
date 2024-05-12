@@ -18,9 +18,12 @@ struct NewTransactionView: View {
     @State private var remarks: String = ""
     @State private var amount: Double = .zero
     @State private var dateAdded: Date = .now
+    @State private var expenseCategory: ExpenseCategory = .foodAndDrinks
     @State private var category: Category = .expense
     // Random Tint
     @State var tint: TintColor = tints.randomElement()!
+    // Layout Variables
+    @State private var horizontalPadding: CGFloat = 15
     
     var body: some View {
         ScrollView(.vertical) {
@@ -42,7 +45,9 @@ struct NewTransactionView: View {
                 
                 CustomSection("Title", "iPhone", value: $title)
                 
-                CustomSection("Remarks", "iPhone 15 Pro Max", value: $remarks)
+                CategorySelect()
+                
+                CustomSection("Description", "iPhone 15 Pro Max", value: $remarks)
                 
                 // Amount & Category Check Box
                 VStack(alignment: .leading, spacing: 10, content: {
@@ -76,14 +81,14 @@ struct NewTransactionView: View {
                         .foregroundStyle(.gray)
                         .hSpacing(.leading)
                     
-                    DatePicker("", selection: $dateAdded, displayedComponents: [.date])
+                    DatePicker("", selection: $dateAdded, displayedComponents: [.date, .hourAndMinute])
                         .datePickerStyle(.graphical)
                         .padding(.horizontal, 15)
                         .padding(.vertical, 12)
                         .background(.background, in: .rect(cornerRadius: 10))
                 })
             }
-            .padding(15)
+            .padding(horizontalPadding)
         }
         .navigationTitle("\(editTransaction == nil ? "New" : "Edit") Transaction")
         .background(.gray.opacity(0.15))
@@ -174,6 +179,38 @@ struct NewTransactionView: View {
         .padding(.vertical, 12)
         .hSpacing(.leading)
         .background(.background, in: .rect(cornerRadius: 10))
+    }
+    
+    @ViewBuilder
+    func CategorySelect() -> some View {
+        VStack(alignment: .leading, spacing: 10, content: {
+            Text("Category")
+                .font(.caption)
+                .foregroundStyle(.gray)
+                .hSpacing(.leading)
+            
+            ScrollView(.horizontal) {
+                HStack(spacing: 10) {
+                    ForEach(ExpenseCategory.allCases, id: \.rawValue) { category in
+                        HStack {
+                            Image(systemName: category.icon)
+                            Text(category.rawValue)
+                        }
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+                        .background(Capsule().fill(expenseCategory == category ? appTint : .white))
+                        .foregroundStyle(expenseCategory == category ? .white : .primary)
+                        .onTapGesture {
+                            print(category)
+                            expenseCategory = category
+                        }
+                    }
+                }
+                .padding(.horizontal, horizontalPadding)
+            }
+            .padding(.horizontal, -horizontalPadding)
+            .scrollIndicators(.hidden)
+        })
     }
     
     // Number Formatter

@@ -131,5 +131,7 @@ struct Home: View {
 }
 
 #Preview {
-    ContentView()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Transaction.self, configurations: config)
+    return ContentView().modelContainer(container)
 }

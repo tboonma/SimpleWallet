@@ -17,14 +17,16 @@ class Transaction {
     var dateAdded: Date
     var category: String
     var tintColor: String
+    var txnCategory: String
     
-    init(title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor) {
+    init(title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
         self.title = title
         self.remarks = remarks
         self.amount = amount
         self.dateAdded = dateAdded
         self.category = category.rawValue
         self.tintColor = tintColor.color
+        self.txnCategory = txnCategory.rawValue
     }
     
     // Extracting Color Value from tintColor String
@@ -41,5 +43,10 @@ class Transaction {
     @Transient
     var rawCategory: Category? {
         return Category.allCases.first(where: { category == $0.rawValue })
+    }
+    
+    @Transient
+    var rawTxnCategory: ExpenseCategory {
+        return ExpenseCategory.allCases.first(where: { txnCategory == $0.rawValue }) ?? .foodAndDrinks
     }
 }

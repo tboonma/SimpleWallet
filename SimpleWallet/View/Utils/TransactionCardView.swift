@@ -14,8 +14,7 @@ struct TransactionCardView: View {
     var body: some View {
         SwipeAction(cornerRadius: 10, direction: .trailing) {
             HStack(spacing: 12) {
-                Text("\(String(transaction.title.prefix(1)))")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                Image(systemName: transaction.rawTxnCategory.icon)
                     .fontWeight(.semibold)
                     .frame(width: 45, height: 45)
                     .background(transaction.color.gradient, in: .circle)

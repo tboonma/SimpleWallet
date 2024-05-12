@@ -29,36 +29,37 @@ enum ExpenseCategory: String, CaseIterable {
     case publicUtilities = "Public Utilities"
     case others = "Others"
     
-    @ViewBuilder
-    var itemContent: some View {
-        switch self {
-        case .foodAndDrinks:
-            Image(systemName: "fork.knife")
-            Text(self.rawValue)
-        case .shopping:
-            Image(systemName: "bag")
-            Text(self.rawValue)
-        case .transportation:
-            Image(systemName: "cablecar")
-            Text(self.rawValue)
-        case .housing:
-            Image(systemName: "house")
-            Text(self.rawValue)
-        case .vehicle:
-            Image(systemName: "car")
-            Text(self.rawValue)
-        case .entertainment:
-            Image(systemName: "figure.play")
-            Text(self.rawValue)
-        case .investments:
-            Image(systemName: "chart.line.uptrend.xyaxis")
-            Text(self.rawValue)
-        case .publicUtilities:
-            Image(systemName: "globe.asia.australia.fill")
-            Text(self.rawValue)
-        case .others:
-            Image(systemName: "ellipsis.circle")
-            Text(self.rawValue)
+    var icon: String {
+        get {
+            if self == .foodAndDrinks {
+                return "fork.knife"
+            }
+            else if self == .shopping {
+                return "bag"
+            }
+            else if self == .transportation {
+                return "cablecar"
+            }
+            else if self == .housing {
+                return "house"
+            }
+            else if self == .vehicle {
+                return "car"
+            }
+            else if self == .entertainment {
+                return "figure.play"
+            }
+            else if self == .investments {
+                return "chart.line.uptrend.xyaxis"
+            }
+            else if self == .publicUtilities {
+                return "globe.asia.australia.fill"
+            }
+            else if self == .others {
+                return "ellipsis.circle"
+            }
+            return ""
         }
+        set {}
     }
 }

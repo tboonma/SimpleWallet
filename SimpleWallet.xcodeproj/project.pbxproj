@@ -30,6 +30,7 @@
 		E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3D82BEFF4CC00C800DE /* FilterTransactionView.swift */; };
 		E90EE3DB2BF0006400C800DE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3DA2BF0006400C800DE /* Account.swift */; };
 		E90EE3DD2BF001EF00C800DE /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3DC2BF001EF00C800DE /* Wallet.swift */; };
+		E90EE3E62BF03B1000C800DE /* ChipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EE3E52BF03B1000C800DE /* ChipModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		E90EE3D82BEFF4CC00C800DE /* FilterTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTransactionView.swift; sourceTree = "<group>"; };
 		E90EE3DA2BF0006400C800DE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E90EE3DC2BF001EF00C800DE /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		E90EE3E52BF03B1000C800DE /* ChipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				E90EE3AE2BECF98000C800DE /* Transaction.swift */,
 				E90EE3B02BECF9FF00C800DE /* TintColor.swift */,
 				E90EE3DA2BF0006400C800DE /* Account.swift */,
+				E90EE3E52BF03B1000C800DE /* ChipModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */,
 				E90EE3AF2BECF98000C800DE /* Transaction.swift in Sources */,
 				E90EE3B92BECFC0F00C800DE /* Budgets.swift in Sources */,
+				E90EE3E62BF03B1000C800DE /* ChipModel.swift in Sources */,
 				E90EE3DB2BF0006400C800DE /* Account.swift in Sources */,
 				E90EE3C32BED19B500C800DE /* CardView.swift in Sources */,
 				E90EE3D22BEF684A00C800DE /* SwipeAction.swift in Sources */,
