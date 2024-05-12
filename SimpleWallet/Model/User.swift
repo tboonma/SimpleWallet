@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Account: Identifiable, Codable {
+struct User: Identifiable, Codable {
     // Properties
     var id: String
     var userName: String
@@ -24,6 +24,6 @@ struct Account: Identifiable, Codable {
     }
 }
 
-extension Account {
-    static var MOCK_USER = Account(id: NSUUID().uuidString, userName: "John Doe", email: "john.doe@gmail.com")
+extension User {
+    static var MOCK_USER = User(id: NSUUID().uuidString, userName: "John Doe", email: "john.doe@gmail.com")
 }

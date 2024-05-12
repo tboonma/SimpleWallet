@@ -10,7 +10,7 @@ import SwiftUI
 struct AccountManageView: View {
     var wallet: Wallet?
     var onSaved: (() -> ())?
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var accountName = ""
     @State private var startingBalance = 0.0

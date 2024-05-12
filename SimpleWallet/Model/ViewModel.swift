@@ -14,9 +14,9 @@ protocol AuthenticationFormProtocol {
 }
 
 @MainActor
-class AuthViewModel: ObservableObject {
+class ViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
-    @Published var currentUser: Account?
+    @Published var currentUser: User?
     @Published var wallets: [Wallet] = []
     
     init() {
@@ -43,7 +43,7 @@ class AuthViewModel: ObservableObject {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
-            let user = Account(id: result.user.uid, userName: userName, email: email)
+            let user = User(id: result.user.uid, userName: userName, email: email)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await FetchUser()
@@ -69,7 +69,7 @@ class AuthViewModel: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-        self.currentUser = try? snapshot.data(as: Account.self)
+        self.currentUser = try? snapshot.data(as: User.self)
         
         print("DEBUG: Current user is \(String(describing: self.currentUser))")
     }

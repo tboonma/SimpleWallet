@@ -13,7 +13,7 @@ struct RegisterView: View {
     @State private var userName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @State private var errorMsg = ""
 
     var body: some View {

@@ -11,7 +11,7 @@ import FirebaseAppCheck
 
 @main
 struct SimpleWalletApp: App {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var viewModel = ViewModel()
     
     init() {
         let providerFactory = AppCheckDebugProviderFactory()

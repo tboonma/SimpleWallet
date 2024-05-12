@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountsView: View {
     @State private var isAddingAccount = false
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         NavigationStack {

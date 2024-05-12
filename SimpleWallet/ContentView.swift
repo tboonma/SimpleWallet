@@ -13,7 +13,7 @@ struct ContentView: View {
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
     // Active Tab
     @State private var activeTab: Tab = .home
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @State private var isLoginViewPresented = false
 
     var body: some View {

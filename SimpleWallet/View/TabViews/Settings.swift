@@ -13,7 +13,7 @@ struct Settings: View {
     @AppStorage("userName") private var userName: String = ""
     @AppStorage("isAppLockEnabled") private var isAppLockEnabled: Bool = false
     @AppStorage("lockWhenAppGoesBackground") private var lockWhenAppGoesBackground: Bool = false
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @State var isAccountSettingPresented = false
     
     var body: some View {
@@ -93,6 +93,6 @@ struct Settings: View {
 }
 
 #Preview {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var viewModel = ViewModel()
     return Settings().environmentObject(viewModel)
 }
