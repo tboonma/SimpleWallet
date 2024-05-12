@@ -58,7 +58,7 @@ struct Settings: View {
                 })
                 
                 NavigationLink {
-                    
+                    AccountsView()
                 } label: {
                     Image(systemName: "gearshape.fill")
                         .fontWeight(.semibold)
@@ -92,7 +92,7 @@ struct Settings: View {
     }
 }
 
-//#Preview {
-//    @StateObject var viewModel = AuthViewModel()
-//    return Settings().environmentObject(viewModel)
-//}
+#Preview {
+    @StateObject var viewModel = AuthViewModel()
+    return Settings().environmentObject(viewModel)
+}

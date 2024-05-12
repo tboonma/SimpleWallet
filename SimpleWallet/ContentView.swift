@@ -39,7 +39,7 @@ struct ContentView: View {
             LoginView().interactiveDismissDisabled()
         })
         .onReceive(viewModel.$currentUser) { currentUser in
-            if currentUser == nil {
+            if currentUser == nil && viewModel.userSession == nil {
                 isLoginViewPresented = true
             } else {
                 isLoginViewPresented = false

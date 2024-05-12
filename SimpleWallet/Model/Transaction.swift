@@ -7,10 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseFirestoreSwift
 
-@Model
-class Transaction {
+class Transaction: Identifiable, Codable {
     // Properties
+    @DocumentID var _id: String? // Firestore document ID
     var id: String
     var title: String
     var remarks: String
@@ -19,9 +20,6 @@ class Transaction {
     var category: String
     var tintColor: String
     var txnCategory: String
-    
-    @Attribute(.externalStorage)
-    private var attachment: Data?
     
     init(id: String, title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
         self.id = id

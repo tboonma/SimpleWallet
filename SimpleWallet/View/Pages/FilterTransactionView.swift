@@ -12,6 +12,7 @@ import SwiftData
 struct FilterTransactionView<Content: View>: View {
     var content: ([Transaction]) -> Content
     @Query(animation: .snappy) private var transactions: [Transaction]
+    
     init(category: Category?, searchText: String, @ViewBuilder content: @escaping ([Transaction]) -> Content) {
         let rawValue = category?.rawValue ?? ""
         
