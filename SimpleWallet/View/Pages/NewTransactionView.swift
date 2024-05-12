@@ -213,6 +213,38 @@ struct NewTransactionView: View {
         })
     }
     
+    @ViewBuilder
+    func WalletSelect() -> some View {
+        VStack(alignment: .leading, spacing: 10, content: {
+            Text("Category")
+                .font(.caption)
+                .foregroundStyle(.gray)
+                .hSpacing(.leading)
+            
+            ScrollView(.horizontal) {
+                HStack(spacing: 10) {
+                    ForEach(ExpenseCategory.allCases, id: \.rawValue) { category in
+                        HStack {
+                            Image(systemName: category.icon)
+                            Text(category.rawValue)
+                        }
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+                        .background(Capsule().fill(expenseCategory == category ? appTint : .white))
+                        .foregroundStyle(expenseCategory == category ? .white : .primary)
+                        .onTapGesture {
+                            print(category)
+                            expenseCategory = category
+                        }
+                    }
+                }
+                .padding(.horizontal, horizontalPadding)
+            }
+            .padding(.horizontal, -horizontalPadding)
+            .scrollIndicators(.hidden)
+        })
+    }
+    
     // Number Formatter
     var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()

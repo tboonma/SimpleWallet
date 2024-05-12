@@ -19,6 +19,9 @@ class Transaction {
     var tintColor: String
     var txnCategory: String
     
+    @Attribute(.externalStorage)
+    var attachment: Data?
+    
     init(title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
         self.title = title
         self.remarks = remarks

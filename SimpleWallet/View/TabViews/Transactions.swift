@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import SwiftData
 
 struct Transactions: View {
     // View Properties
@@ -85,6 +86,7 @@ struct Transactions: View {
     }
 }
 
-#Preview {
-    Transactions()
-}
+//#Preview {
+//    @StateObject var viewModel = AuthViewModel()
+//    return Transactions().environmentObject(viewModel)
+//}

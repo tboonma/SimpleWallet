@@ -13,6 +13,7 @@ struct Home: View {
     @Query(sort: [SortDescriptor(\Transaction.dateAdded, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
     // User Properties
     @AppStorage("userName") private var userName: String = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     // View Properties
     @State private var startDate: Date = .now.startOfMonth
     @State private var endDate: Date = .now.endOfMonth
@@ -71,14 +72,13 @@ struct Home: View {
     func HeaderView(_ size: CGSize) -> some View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 5, content: {
-                Text("Welcome!")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/.bold())
-
-                if !userName.isEmpty {
-                    Text(userName)
-                        .font(.callout)
-                        .foregroundStyle(.gray)
-                }
+                Text(viewModel.currentUser?.initials ?? "")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .frame(width: 40, height: 40)
+                    .background(.gray)
+                    .clipShape(.circle)
             })
             
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
@@ -130,8 +130,7 @@ struct Home: View {
     }
 }
 
-#Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Transaction.self, configurations: config)
-    return ContentView().modelContainer(container)
-}
+//#Preview {
+//    @StateObject var viewModel = AuthViewModel()
+//    return ContentView().environmentObject(viewModel)
+//}

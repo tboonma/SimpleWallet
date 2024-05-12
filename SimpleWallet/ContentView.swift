@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     // Visibility Status
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
     // Active Tab
     @State private var activeTab: Tab = .home
+    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var isLoginViewPresented = false
 
     var body: some View {
         TabView(selection: $activeTab) {
@@ -32,10 +35,22 @@ struct ContentView: View {
         .sheet(isPresented: $isFirstTime, content: {
             IntroScreen().interactiveDismissDisabled()
         })
-        
+        .sheet(isPresented: $isLoginViewPresented, content: {
+            LoginView().interactiveDismissDisabled()
+        })
+        .onReceive(viewModel.$currentUser) { currentUser in
+            if currentUser == nil {
+                isLoginViewPresented = true
+            } else {
+                isLoginViewPresented = false
+            }
+        }
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    @StateObject var viewModel = AuthViewModel()
+//    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//    let container = try! ModelContainer(for: Transaction.self, configurations: config)
+//    return ContentView().environmentObject(viewModel).modelContainer(container)
+//}

@@ -8,33 +8,6 @@
 import SwiftUI
 import SwiftData
 
-//protocol Wallet: PersistentModel {
-//    // Properties
-//    var name: String { get set }
-//    var category: WalletCategory { get set }
-//    var transactions: [Transaction] { get set }
-//    var accountBalanceText: String { get set }
-//    var startingBalance: Double { get set }
-//}
-//
-//extension Wallet {
-//    var balance: Double {
-//        return transactions.reduce(0) { $0 + $1.amount }
-//    }
-//    
-//    var totalIncome: Double {
-//        return transactions
-//            .filter({ $0.rawCategory == .income })
-//            .reduce(0) { $0 + $1.amount }
-//    }
-//    
-//    var totalExpense: Double {
-//        return transactions
-//            .filter({ $0.rawCategory == .expense })
-//            .reduce(0) { $0 + $1.amount }
-//    }
-//}
-
 class Wallet {
     // Properties
     var hours: Int
@@ -43,6 +16,8 @@ class Wallet {
     var transactions: [Transaction]
     var accountBalanceText: String
     var startingBalance: Double
+    var dateAdded: Date
+    var lastUpdated: Date
     
     init(name: String, category: WalletCategory, transactions: [Transaction], accountBalanceText: String, startingBalance: Double) {
         self.name = name
@@ -51,6 +26,8 @@ class Wallet {
         self.accountBalanceText = accountBalanceText
         self.startingBalance = startingBalance
         self.hours = 0
+        self.dateAdded = .now
+        self.lastUpdated = .now
     }
     
     var balance: Double {
