@@ -33,28 +33,37 @@ struct CardView: View {
                         let symbolImage = category == .income ? "arrow.down" : "arrow.up"
                         let tint: Color = category == .income ? .green : .red
                         HStack(spacing: 10) {
-                            Image(systemName: symbolImage)
-                                .font(.callout.bold())
-                                .foregroundStyle(tint)
-                                .frame(width: 35, height: 35)
-                                .background {
-                                    Circle()
-                                        .fill(tint.opacity(0.25).gradient)
+                            NavigationLink {
+                                if category == .income {
+                                    NewTransactionView(category: .income)
                                 }
-                            
-                            VStack(alignment: .leading, spacing: 4, content: {
-                                Text(category.rawValue)
-                                    .font(.caption2)
-                                    .foregroundStyle(.gray)
+                                else if category == .expense {
+                                    NewTransactionView(category: .expense)
+                                }
+                            } label: {
+                                Image(systemName: symbolImage)
+                                    .font(.callout.bold())
+                                    .foregroundStyle(tint)
+                                    .frame(width: 35, height: 35)
+                                    .background {
+                                        Circle()
+                                            .fill(tint.opacity(0.25).gradient)
+                                    }
                                 
-                                Text(currencyString(category == .income ? income : expense, allowedDigits: 0))
-                                    .font(.callout)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
-                            })
-                            
-                            if category == .income {
-                                Spacer(minLength: 10)
+                                VStack(alignment: .leading, spacing: 4, content: {
+                                    Text(category.rawValue)
+                                        .font(.caption2)
+                                        .foregroundStyle(.gray)
+                                    
+                                    Text(currencyString(category == .income ? income : expense, allowedDigits: 0))
+                                        .font(.callout)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.black)
+                                })
+                                
+                                if category == .income {
+                                    Spacer(minLength: 10)
+                                }
                             }
                         }
                     }

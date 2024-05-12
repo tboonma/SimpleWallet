@@ -63,6 +63,8 @@
 		E99610472BF0683A00CF280B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E99610462BF0683A00CF280B /* FirebaseStorageCombine-Community */; };
 		E99610492BF0689200CF280B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99610482BF0689200CF280B /* AuthViewModel.swift */; };
 		E996104D2BF06CB100CF280B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E996104C2BF06CB100CF280B /* GoogleService-Info.plist */; };
+		E996104F2BF0A05B00CF280B /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E996104E2BF0A05B00CF280B /* ItemViewModel.swift */; };
+		E9B3CBD32BF0BF390098B581 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3CBD22BF0BF390098B581 /* AccountsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		E996100F2BF0670C00CF280B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E99610482BF0689200CF280B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E996104C2BF06CB100CF280B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SimpleWallet/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E996104E2BF0A05B00CF280B /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		E9B3CBD22BF0BF390098B581 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 				E90EE3B02BECF9FF00C800DE /* TintColor.swift */,
 				E90EE3DA2BF0006400C800DE /* Account.swift */,
 				E99610482BF0689200CF280B /* AuthViewModel.swift */,
+				E996104E2BF0A05B00CF280B /* ItemViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			children = (
 				E99610072BF056F300CF280B /* LoginView.swift */,
 				E996100B2BF05F5700CF280B /* RegisterView.swift */,
+				E9B3CBD22BF0BF390098B581 /* AccountsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 				E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */,
 				E996100A2BF05BC800CF280B /* InputView.swift in Sources */,
 				E90EE3AF2BECF98000C800DE /* Transaction.swift in Sources */,
+				E9B3CBD32BF0BF390098B581 /* AccountsView.swift in Sources */,
 				E90EE3B92BECFC0F00C800DE /* Budgets.swift in Sources */,
 				E90EE3DB2BF0006400C800DE /* Account.swift in Sources */,
 				E90EE3C32BED19B500C800DE /* CardView.swift in Sources */,
@@ -393,6 +400,7 @@
 				E90EE3D72BEFD0E200C800DE /* NewTransactionView.swift in Sources */,
 				E90EE3962BECD0BE00C800DE /* ContentView.swift in Sources */,
 				E90EE3A62BECD1E600C800DE /* IntroScreen.swift in Sources */,
+				E996104F2BF0A05B00CF280B /* ItemViewModel.swift in Sources */,
 				E90EE3BC2BECFC1E00C800DE /* Settings.swift in Sources */,
 				E90EE3B42BECFBF500C800DE /* Home.swift in Sources */,
 				E90EE3AB2BECD86C00C800DE /* Tab.swift in Sources */,

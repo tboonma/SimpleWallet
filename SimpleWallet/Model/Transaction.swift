@@ -11,6 +11,7 @@ import SwiftData
 @Model
 class Transaction {
     // Properties
+    var id: String
     var title: String
     var remarks: String
     var amount: Double
@@ -20,9 +21,10 @@ class Transaction {
     var txnCategory: String
     
     @Attribute(.externalStorage)
-    var attachment: Data?
+    private var attachment: Data?
     
-    init(title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
+    init(id: String, title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
+        self.id = id
         self.title = title
         self.remarks = remarks
         self.amount = amount

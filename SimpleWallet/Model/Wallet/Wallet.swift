@@ -8,30 +8,24 @@
 import SwiftUI
 import SwiftData
 
-class Wallet {
+class Wallet: Identifiable, Codable {
     // Properties
+    var id: String
+    var userId: String
     var hours: Int
     var name: String
-    var category: WalletCategory
-    var transactions: [Transaction]
-    var accountBalanceText: String
+    var category: String
     var startingBalance: Double
     var dateAdded: Date
     var lastUpdated: Date
-    
-    init(name: String, category: WalletCategory, transactions: [Transaction], accountBalanceText: String, startingBalance: Double) {
-        self.name = name
-        self.category = category
-        self.transactions = transactions
-        self.accountBalanceText = accountBalanceText
-        self.startingBalance = startingBalance
-        self.hours = 0
-        self.dateAdded = .now
-        self.lastUpdated = .now
-    }
-    
+
     var balance: Double {
-        return transactions.reduce(0) { $0 + $1.amount }
+        if category == .creditCard {
+            let totalExpense = transactions.reduce(0) { $0 + $1.amount }
+            return startingBalance - totalExpense
+        } else {
+            return transactions.reduce(0) { $0 + $1.amount }
+        }
     }
     
     var totalIncome: Double {
@@ -45,21 +39,16 @@ class Wallet {
             .filter({ $0.rawCategory == .expense })
             .reduce(0) { $0 + $1.amount }
     }
-}
-
-class DebitWallet: Wallet {
-    override init(name: String, category: WalletCategory, transactions: [Transaction], accountBalanceText: String, startingBalance: Double = 0) {
-        super.init(name: name, category: category, transactions: transactions, accountBalanceText: "Account Balance", startingBalance: startingBalance)
-    }
-}
-
-class CreditWallet: Wallet {
-    override init(name: String, category: WalletCategory, transactions: [Transaction], accountBalanceText: String, startingBalance: Double) {
-        super.init(name: name, category: category, transactions: transactions, accountBalanceText: "Available Credits", startingBalance: startingBalance)
+    
+    var accountBalanceText: String {
+        if category == .creditCard {
+            return "Available Credits"
+        } else {
+            return "Account Balance"
+        }
     }
     
-    override var balance: Double {
-        let totalExpense = transactions.reduce(0) { $0 + $1.amount }
-        return startingBalance - totalExpense
+    var rawCategory: WalletCategory? {
+        return WalletCategory.allCases.first(where: { category == $0.rawValue })
     }
 }

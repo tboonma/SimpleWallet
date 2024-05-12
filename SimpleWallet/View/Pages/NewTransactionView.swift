@@ -13,13 +13,15 @@ struct NewTransactionView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     var editTransaction: Transaction?
+    @State var category: Category = .expense
     // View Properties
     @State private var title: String = ""
     @State private var remarks: String = ""
     @State private var amount: Double = .zero
     @State private var dateAdded: Date = .now
     @State private var expenseCategory: ExpenseCategory = .foodAndDrinks
-    @State private var category: Category = .expense
+    @State private var incomeCategory: IncomeCategory = .income
+    
     // Random Tint
     @State var tint: TintColor = tints.randomElement()!
     // Layout Variables
@@ -35,6 +37,7 @@ struct NewTransactionView: View {
                 
                 // Preview Transaction Card View
                 TransactionCardView(transaction: .init(
+                    id: "",
                     title: title.isEmpty ? "Title" : title,
                     remarks: remarks.isEmpty ? "Remarks" : remarks,
                     amount: amount,
@@ -125,7 +128,7 @@ struct NewTransactionView: View {
             editTransaction?.category = category.rawValue
         } else {
             // Saving Item to SwiftData
-            let transaction = Transaction(title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)
+            let transaction = Transaction(id: "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)
             context.insert(transaction)
         }
         // Dismissing View
@@ -191,19 +194,10 @@ struct NewTransactionView: View {
             
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(ExpenseCategory.allCases, id: \.rawValue) { category in
-                        HStack {
-                            Image(systemName: category.icon)
-                            Text(category.rawValue)
-                        }
-                        .padding(.horizontal, 15)
-                        .padding(.vertical, 5)
-                        .background(Capsule().fill(expenseCategory == category ? appTint : .white))
-                        .foregroundStyle(expenseCategory == category ? .white : .primary)
-                        .onTapGesture {
-                            print(category)
-                            expenseCategory = category
-                        }
+                    if category == .expense {
+                        RenderExpenseCategoryStack()
+                    } else if category == .income {
+                        RenderIncomeCategoryStack()
                     }
                 }
                 .padding(.horizontal, horizontalPadding)
@@ -211,6 +205,38 @@ struct NewTransactionView: View {
             .padding(.horizontal, -horizontalPadding)
             .scrollIndicators(.hidden)
         })
+    }
+    
+    func RenderExpenseCategoryStack() -> some View {
+        ForEach(ExpenseCategory.allCases, id: \.rawValue) { category in
+            HStack {
+                Image(systemName: category.icon)
+                Text(category.rawValue)
+            }
+            .padding(.horizontal, 15)
+            .padding(.vertical, 5)
+            .background(Capsule().fill(expenseCategory == category ? appTint : .white))
+            .foregroundStyle(expenseCategory == category ? .white : .primary)
+            .onTapGesture {
+                expenseCategory = category
+            }
+        }
+    }
+    
+    func RenderIncomeCategoryStack() -> some View {
+        ForEach(IncomeCategory.allCases, id: \.rawValue) { category in
+            HStack {
+                Image(systemName: category.icon)
+                Text(category.rawValue)
+            }
+            .padding(.horizontal, 15)
+            .padding(.vertical, 5)
+            .background(Capsule().fill(incomeCategory == category ? appTint : .white))
+            .foregroundStyle(incomeCategory == category ? .white : .primary)
+            .onTapGesture {
+                incomeCategory = category
+            }
+        }
     }
     
     @ViewBuilder

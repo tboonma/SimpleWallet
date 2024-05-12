@@ -12,7 +12,7 @@ enum Category: String, CaseIterable {
     case expense = "Expense"
 }
 
-enum WalletCategory: String, CaseIterable {
+enum WalletCategory: String, CaseIterable, Codable {
     case wallet = "Wallet"
     case card = "Card"
     case creditCard = "Credit Card"
@@ -61,5 +61,34 @@ enum ExpenseCategory: String, CaseIterable {
             return ""
         }
         set {}
+    }
+}
+
+enum IncomeCategory: String, CaseIterable {
+    case salary = "Salary"
+    case sale = "Sale"
+    case taxRefund = "Tax Refunds"
+    case gifts = "Gifts"
+    case income = "Income"
+    
+    var icon: String {
+        get {
+            if self == .salary {
+                return "line.horizontal.3"
+            }
+            else if self == .sale {
+                return "line.horizontal.3"
+            }
+            else if self == .taxRefund {
+                return "line.horizontal.3"
+            }
+            else if self == .gifts {
+                return "line.horizontal.3"
+            }
+            else if self == .income {
+                return "line.horizontal.3"
+            }
+            return ""
+        } set {}
     }
 }

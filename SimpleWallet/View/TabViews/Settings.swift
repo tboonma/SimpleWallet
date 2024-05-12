@@ -57,6 +57,15 @@ struct Settings: View {
                     }
                 })
                 
+                NavigationLink {
+                    
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .fontWeight(.semibold)
+                        .foregroundStyle(CustomColor.darkGray)
+                    Text("Accounts")
+                    
+                }
                 
                 NavigationLink {
                     
