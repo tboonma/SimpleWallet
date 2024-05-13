@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 import FirebaseFirestoreSwift
 
-struct Wallet: Identifiable, Codable {
+struct Wallet: Identifiable, Codable, Hashable {
     // Properties
     @DocumentID var _id: String? // Firestore document ID
     var id: String

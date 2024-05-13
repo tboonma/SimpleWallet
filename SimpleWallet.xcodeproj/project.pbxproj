@@ -64,6 +64,13 @@
 		E99610492BF0689200CF280B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99610482BF0689200CF280B /* ViewModel.swift */; };
 		E996104D2BF06CB100CF280B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E996104C2BF06CB100CF280B /* GoogleService-Info.plist */; };
 		E9A176752BF0D76F0088162E /* AccountManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176742BF0D76F0088162E /* AccountManageView.swift */; };
+		E9A176772BF125650088162E /* LargeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176762BF125650088162E /* LargeCardView.swift */; };
+		E9A1767A2BF12EC50088162E /* PlannedPayments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176792BF12EC50088162E /* PlannedPayments.swift */; };
+		E9A1767E2BF136220088162E /* PlannedPaymentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A1767D2BF136220088162E /* PlannedPaymentListView.swift */; };
+		E9A176802BF1367E0088162E /* PlannedPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A1767F2BF1367E0088162E /* PlannedPaymentModel.swift */; };
+		E9A176842BF140230088162E /* PlannedPaymentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176832BF140230088162E /* PlannedPaymentCardView.swift */; };
+		E9A176862BF16D3D0088162E /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176852BF16D3D0088162E /* BudgetView.swift */; };
+		E9A176882BF16DC00088162E /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A176872BF16DC00088162E /* ChartModel.swift */; };
 		E9B3CBD32BF0BF390098B581 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3CBD22BF0BF390098B581 /* AccountsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +106,13 @@
 		E99610482BF0689200CF280B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E996104C2BF06CB100CF280B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SimpleWallet/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9A176742BF0D76F0088162E /* AccountManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManageView.swift; sourceTree = "<group>"; };
+		E9A176762BF125650088162E /* LargeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCardView.swift; sourceTree = "<group>"; };
+		E9A176792BF12EC50088162E /* PlannedPayments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedPayments.swift; sourceTree = "<group>"; };
+		E9A1767D2BF136220088162E /* PlannedPaymentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedPaymentListView.swift; sourceTree = "<group>"; };
+		E9A1767F2BF1367E0088162E /* PlannedPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedPaymentModel.swift; sourceTree = "<group>"; };
+		E9A176832BF140230088162E /* PlannedPaymentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedPaymentCardView.swift; sourceTree = "<group>"; };
+		E9A176852BF16D3D0088162E /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		E9A176872BF16DC00088162E /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		E9B3CBD22BF0BF390098B581 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +217,8 @@
 				E90EE3B02BECF9FF00C800DE /* TintColor.swift */,
 				E90EE3DA2BF0006400C800DE /* User.swift */,
 				E99610482BF0689200CF280B /* ViewModel.swift */,
+				E9A1767F2BF1367E0088162E /* PlannedPaymentModel.swift */,
+				E9A176872BF16DC00088162E /* ChartModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +236,7 @@
 		E90EE3B22BECFBDD00C800DE /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				E9A176782BF12EB80088162E /* Budgets */,
 				E90EE3D32BEFCAE200C800DE /* Settings */,
 				E90EE3B32BECFBF500C800DE /* Home.swift */,
 				E90EE3B52BECFC0100C800DE /* Transactions.swift */,
@@ -235,6 +252,8 @@
 				E90EE3C22BED19B500C800DE /* CardView.swift */,
 				E90EE3CE2BEF535400C800DE /* TransactionCardView.swift */,
 				E90EE3D12BEF684A00C800DE /* SwipeAction.swift */,
+				E9A176762BF125650088162E /* LargeCardView.swift */,
+				E9A176832BF140230088162E /* PlannedPaymentCardView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -280,6 +299,16 @@
 				E90EE3DC2BF001EF00C800DE /* Wallet.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		E9A176782BF12EB80088162E /* Budgets */ = {
+			isa = PBXGroup;
+			children = (
+				E9A176792BF12EC50088162E /* PlannedPayments.swift */,
+				E9A1767D2BF136220088162E /* PlannedPaymentListView.swift */,
+				E9A176852BF16D3D0088162E /* BudgetView.swift */,
+			);
+			path = Budgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,17 +418,23 @@
 				E90EE3B62BECFC0100C800DE /* Transactions.swift in Sources */,
 				E90EE3B12BECF9FF00C800DE /* TintColor.swift in Sources */,
 				E90EE3D92BEFF4CC00C800DE /* FilterTransactionView.swift in Sources */,
+				E9A1767E2BF136220088162E /* PlannedPaymentListView.swift in Sources */,
 				E996100A2BF05BC800CF280B /* InputView.swift in Sources */,
+				E9A176802BF1367E0088162E /* PlannedPaymentModel.swift in Sources */,
 				E90EE3AF2BECF98000C800DE /* Transaction.swift in Sources */,
 				E9B3CBD32BF0BF390098B581 /* AccountsView.swift in Sources */,
 				E90EE3B92BECFC0F00C800DE /* Budgets.swift in Sources */,
 				E90EE3DB2BF0006400C800DE /* User.swift in Sources */,
+				E9A176862BF16D3D0088162E /* BudgetView.swift in Sources */,
+				E9A176842BF140230088162E /* PlannedPaymentCardView.swift in Sources */,
 				E90EE3C32BED19B500C800DE /* CardView.swift in Sources */,
 				E90EE3D22BEF684A00C800DE /* SwipeAction.swift in Sources */,
+				E9A176772BF125650088162E /* LargeCardView.swift in Sources */,
 				E99610082BF056F300CF280B /* LoginView.swift in Sources */,
 				E90EE3D72BEFD0E200C800DE /* NewTransactionView.swift in Sources */,
 				E90EE3962BECD0BE00C800DE /* ContentView.swift in Sources */,
 				E90EE3A62BECD1E600C800DE /* IntroScreen.swift in Sources */,
+				E9A1767A2BF12EC50088162E /* PlannedPayments.swift in Sources */,
 				E90EE3BC2BECFC1E00C800DE /* Settings.swift in Sources */,
 				E90EE3B42BECFBF500C800DE /* Home.swift in Sources */,
 				E90EE3AB2BECD86C00C800DE /* Tab.swift in Sources */,
@@ -408,6 +443,7 @@
 				E90EE3DD2BF001EF00C800DE /* Wallet.swift in Sources */,
 				E90EE3BE2BED003A00C800DE /* View+Extensions.swift in Sources */,
 				E90EE3942BECD0BE00C800DE /* SimpleWalletApp.swift in Sources */,
+				E9A176882BF16DC00088162E /* ChartModel.swift in Sources */,
 				E99610492BF0689200CF280B /* ViewModel.swift in Sources */,
 				E90EE3A92BECD3A000C800DE /* Constants.swift in Sources */,
 				E996100C2BF05F5700CF280B /* RegisterView.swift in Sources */,

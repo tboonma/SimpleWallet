@@ -60,34 +60,15 @@ struct Settings: View {
                 NavigationLink {
                     AccountsView()
                 } label: {
-                    Image(systemName: "gearshape.fill")
+                    Image(systemName: "book.pages.fill")
                         .fontWeight(.semibold)
                         .foregroundStyle(CustomColor.darkGray)
                     Text("Accounts")
-                    
-                }
-                
-                NavigationLink {
-                    
-                } label: {
-                    Image(systemName: "gearshape.fill")
-                        .fontWeight(.semibold)
-                        .foregroundStyle(CustomColor.darkGray)
-                    Text("General")
-                    
-                }
-                
-                NavigationLink {
-                    
-                } label: {
-                    Image(systemName: "lock.fill")
-                        .fontWeight(.semibold)
-                        .foregroundStyle(CustomColor.darkGray)
-                    Text("Security")
                 }
                 
             }
             .navigationTitle("Settings")
+            .background(.gray.opacity(0.15))
         }
     }
 }

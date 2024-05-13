@@ -8,16 +8,24 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseAppCheck
+import SwiftData
 
 @main
 struct SimpleWalletApp: App {
     @StateObject var viewModel = ViewModel()
+    let modelContainer: ModelContainer
     
     init() {
         let providerFactory = AppCheckDebugProviderFactory()
         AppCheck.setAppCheckProviderFactory(providerFactory)
         
         FirebaseApp.configure()
+        
+        do {
+            modelContainer = try ModelContainer(for: Transaction.self)
+        } catch {
+            fatalError("Could not initialize ModelContainer")
+        }
     }
     
     var body: some Scene {
@@ -25,6 +33,6 @@ struct SimpleWalletApp: App {
             ContentView()
                 .environmentObject(viewModel)
         }
-        .modelContainer(for: [Transaction.self])
+        .modelContainer(modelContainer)
     }
 }

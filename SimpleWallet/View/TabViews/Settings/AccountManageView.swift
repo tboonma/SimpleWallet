@@ -108,7 +108,7 @@ struct AccountManageView: View {
             .navigationBarItems(trailing: Button("Save") {
                 // Add save account logic here
                 Task {
-                    if wallet != nil {
+                    if wallet == nil {
                         try await viewModel.createWallet(wallet: Wallet(id: NSUUID().uuidString, userId: viewModel.currentUser?.id ?? "", name: accountName, category: selectedCategory.rawValue, startingBalance: startingBalance, iconName: selectedIcon, color: ColorMapping.colorToString[selectedColor] ?? "", dateAdded: .now, lastUpdated: .now))
                     } else {
                         try await viewModel.updateWallet(wallet: Wallet(id: (wallet?.id)!, userId: viewModel.currentUser?.id ?? "", name: accountName, category: selectedCategory.rawValue, startingBalance: startingBalance, iconName: selectedIcon, color: ColorMapping.colorToString[selectedColor] ?? "", dateAdded: .now, lastUpdated: .now))

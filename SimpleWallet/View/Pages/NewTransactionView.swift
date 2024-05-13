@@ -46,6 +46,22 @@ struct NewTransactionView: View {
                     tintColor: tint
                 ))
                 
+                Section(header: Text("Amount").font(.caption)
+                    .foregroundStyle(.gray)
+                    .hSpacing(.leading)) {
+                    HStack {
+                        Text(currencySymbol)
+                            .font(.callout.bold())
+                        TextField("0.0", value: $amount, formatter: numberFormatter)
+                            .keyboardType(.decimalPad)
+                            .font(.system(size: 24, weight: .bold))
+                            .padding(.vertical, 15)
+                    }
+                    .padding(.horizontal, 15)
+                    .background(.background, in: .rect(cornerRadius: 10))
+                    .frame(width: 180, height: 180)
+                }
+                
                 CustomSection("Title", "iPhone", value: $title)
                 
                 CategorySelect()
@@ -60,18 +76,6 @@ struct NewTransactionView: View {
                         .hSpacing(.leading)
                     
                     HStack(spacing: 15) {
-                        HStack(spacing: 4) {
-                            Text(currencySymbol)
-                                .font(.callout.bold())
-                            TextField("0.0", value: $amount, formatter: numberFormatter)
-                                .keyboardType(.decimalPad)
-                        }
-                        .padding(.horizontal, 15)
-                        .padding(.vertical, 12)
-                        .background(.background, in: .rect(cornerRadius: 10))
-                        .frame(maxWidth: 130)
-                        
-                        
                         // Custom Checkbox
                         CategoryCheckbox()
                     }
@@ -126,6 +130,7 @@ struct NewTransactionView: View {
             editTransaction?.amount = amount
             editTransaction?.dateAdded = dateAdded
             editTransaction?.category = category.rawValue
+            
         } else {
             // Saving Item to SwiftData
             let transaction = Transaction(id: "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)

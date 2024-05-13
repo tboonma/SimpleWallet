@@ -30,7 +30,7 @@ struct AccountsView: View {
                 isAddingAccount = true
             }) {
                 Image(systemName: "plus")
-                    .font(.title3)
+                    .font(.caption)
                     .foregroundStyle(.white)
                     .padding(10)
                     .background(Color.blue)

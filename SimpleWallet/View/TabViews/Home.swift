@@ -38,16 +38,12 @@ struct Home: View {
             
             NavigationStack {
                 ScrollView(.vertical) {
-                    LazyVStack(spacing: 10, pinnedViews: [.sectionHeaders], content: {
+                    VStack(spacing: 10, content: {
                         Section {
                             // Card View
                             CardView(income: totalIncome, expense: totalExpense)
                             
-                            // Custom Segmented Control
-                            CustomSegmentedControl()
-                                .padding(.bottom, 10)
-                            
-                            ForEach(transactions.filter({ $0.rawCategory == selectedCategory })) { transaction in
+                            ForEach(transactions, id: \.self) { transaction in
                                 NavigationLink {
                                     NewTransactionView(editTransaction: transaction)
                                 } label: {
@@ -64,6 +60,9 @@ struct Home: View {
                 }
                 .background(.gray.opacity(0.15))
             }
+            .onAppear(perform: {
+                viewModel.getTransactions()
+            })
         }
     }
     
@@ -86,11 +85,12 @@ struct Home: View {
             NavigationLink {
                 NewTransactionView()
             } label: {
-                Image(systemName: "ellipsis")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(CustomColor.darkGray)
-                    .frame(width: 45, height: 45)
+                Image(systemName: "plus")
+                    .font(.caption)
+                    .foregroundStyle(.white)
+                    .padding(10)
+                    .background(Color.blue)
+                    .clipShape(Circle())
             }
         }
         .padding(.bottom, 5)

@@ -39,7 +39,7 @@ struct ContentView: View {
             LoginView().interactiveDismissDisabled()
         })
         .onReceive(viewModel.$currentUser) { currentUser in
-            if currentUser == nil && viewModel.userSession == nil {
+            if currentUser == nil {
                 isLoginViewPresented = true
             } else {
                 isLoginViewPresented = false
@@ -48,9 +48,9 @@ struct ContentView: View {
     }
 }
 
-//#Preview {
-//    @StateObject var viewModel = AuthViewModel()
-//    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//    let container = try! ModelContainer(for: Transaction.self, configurations: config)
-//    return ContentView().environmentObject(viewModel).modelContainer(container)
-//}
+#Preview {
+    @StateObject var viewModel = ViewModel()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Transaction.self, configurations: config)
+    return ContentView().environmentObject(viewModel).modelContainer(container)
+}

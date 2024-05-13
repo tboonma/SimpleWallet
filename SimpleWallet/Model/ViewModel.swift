@@ -18,6 +18,8 @@ class ViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var wallets: [Wallet] = []
+    @Published var plannedPayments: [PlannedPaymentModel] = []
+    @Published var transactions: [TransactionModel] = []
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -79,7 +81,7 @@ class ViewModel: ObservableObject {
             let encodedWallet = try Firestore.Encoder().encode(wallet)
             try await Firestore.firestore().collection("wallets").document(wallet.id).setData(encodedWallet)
         } catch {
-            print("DEEBUG: Failed to create wallet with error \(error.localizedDescription)")
+            print("DEBUG: Failed to create wallet with error \(error.localizedDescription)")
         }
     }
     
@@ -99,12 +101,30 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func getWalletById(walletId: String) async -> Wallet? {
+        let userId: String = currentUser?.id ?? ""
+        if userId == "" {
+            return nil
+        }
+        do {
+            let documentSnapshot = try await Firestore.firestore().collection("wallets").document(walletId).getDocument()
+            if let data = documentSnapshot.data() {
+                if let wallet = try? Firestore.Decoder().decode(Wallet.self, from: data) {
+                    return wallet
+                }
+            }
+        } catch {
+            print("DEBUG: Failed to create wallet with error \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
     func updateWallet(wallet: Wallet) async throws {
         do {
             let encodedWallet = try Firestore.Encoder().encode(wallet)
             try await Firestore.firestore().collection("wallets").document(wallet.id).setData(encodedWallet, merge: true)
         } catch {
-            print("DEEBUG: Failed to create wallet with error \(error.localizedDescription)")
+            print("DEBUG: Failed to update wallet with error \(error.localizedDescription)")
         }
     }
     
@@ -115,6 +135,94 @@ class ViewModel: ObservableObject {
             try await walletRef.delete()
         } catch {
             print("Error deleting wallet: \(error.localizedDescription)")
+        }
+    }
+    
+    func createPlannedPayment(paymentModel: PlannedPaymentModel) async {
+        do {
+            let encoded = try Firestore.Encoder().encode(paymentModel)
+            try await Firestore.firestore().collection("plannedPayments").document(paymentModel.id).setData(encoded)
+        } catch {
+            print("DEBUG: Failed to create planned payment with error \(error.localizedDescription)")
+        }
+    }
+    
+    func getPlannedPayments() {
+        Task {
+            let userId: String = currentUser?.id ?? ""
+            if userId == "" {
+                return
+            }
+            let querySnapshot = try await Firestore.firestore().collection("plannedPayments")
+                .whereField("userId", isEqualTo: userId)
+                .order(by: "date", descending: true)
+                .getDocuments()
+            self.plannedPayments = try querySnapshot.documents.compactMap { document -> PlannedPaymentModel? in
+                return try document.data(as: PlannedPaymentModel.self)
+            }
+        }
+    }
+    
+    func updatePlannedPayments(paymentModel: PlannedPaymentModel) async {
+        do {
+            let encodedWallet = try Firestore.Encoder().encode(paymentModel)
+            try await Firestore.firestore().collection("plannedPayments").document(paymentModel.id).setData(encodedWallet, merge: true)
+        } catch {
+            print("DEEBUG: Failed to update planned payment with error \(error.localizedDescription)")
+        }
+    }
+    
+    func deletePlannedPayment(plannedPaymentId: String) async {
+        do {
+            let db = Firestore.firestore()
+            let walletRef = db.collection("plannedPayments").document(plannedPaymentId)
+            try await walletRef.delete()
+        } catch {
+            print("Error deleting planned payment: \(error.localizedDescription)")
+        }
+    }
+    
+    func createTransaction(transaction: TransactionModel) async {
+        do {
+            let encoded = try Firestore.Encoder().encode(transaction)
+            try await Firestore.firestore().collection("transactions").document(transaction.id).setData(encoded)
+        } catch {
+            print("DEBUG: Failed to create transaction with error \(error.localizedDescription)")
+        }
+    }
+    
+    func getTransactions() {
+        Task {
+            let userId: String = currentUser?.id ?? ""
+            if userId == "" {
+                return
+            }
+            let querySnapshot = try await Firestore.firestore().collection("transactions")
+                .whereField("userId", isEqualTo: userId)
+                .order(by: "dateAdded", descending: true)
+                .getDocuments()
+            self.plannedPayments = try querySnapshot.documents.compactMap { document -> PlannedPaymentModel? in
+                return try document.data(as: PlannedPaymentModel.self)
+            }
+        }
+    }
+    
+    func updateTransaction(transaction: TransactionModel) async {
+        do {
+            let encoded = try Firestore.Encoder().encode(transaction)
+            try await Firestore.firestore().collection("transactions").document(transaction.id).setData(encoded, merge: true)
+        } catch {
+            print("DEEBUG: Failed to update transaction with error \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteTransaction(transactionId: String) async {
+        do {
+            let db = Firestore.firestore()
+            let walletRef = db.collection("transactions").document(transactionId)
+            try await walletRef.delete()
+        } catch {
+            print("Error deleting transaction: \(error.localizedDescription)")
         }
     }
 }
