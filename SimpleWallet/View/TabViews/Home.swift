@@ -12,6 +12,7 @@ struct Home: View {
     // Data Persistents
     @Query(sort: [SortDescriptor(\Transaction.dateAdded, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
     // User Properties
+    @Environment(\.modelContext) private var context
     @AppStorage("userName") private var userName: String = ""
     @EnvironmentObject var viewModel: ViewModel
     // View Properties
@@ -20,12 +21,12 @@ struct Home: View {
     @State private var selectedCategory: Category = .income
     private var totalIncome: Double {
         transactions
-            .filter({ $0.rawCategory == .income })
+            .filter({ $0.rawCategory == .income && $0.userId == viewModel.currentUser?.id })
             .reduce(0) { $0 + $1.amount }
     }
     private var totalExpense: Double {
         transactions
-            .filter({ $0.rawCategory == .expense })
+            .filter({ $0.rawCategory == .expense && $0.userId == viewModel.currentUser?.id })
             .reduce(0) { $0 + $1.amount }
     }
     // For Animation
@@ -43,7 +44,7 @@ struct Home: View {
                             // Card View
                             CardView(income: totalIncome, expense: totalExpense)
                             
-                            ForEach(transactions, id: \.self) { transaction in
+                            ForEach(transactions.filter({ $0.userId == viewModel.currentUser?.id }), id: \.self) { transaction in
                                 NavigationLink {
                                     NewTransactionView(editTransaction: transaction)
                                 } label: {

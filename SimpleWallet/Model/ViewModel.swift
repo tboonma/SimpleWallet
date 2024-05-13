@@ -15,6 +15,7 @@ protocol AuthenticationFormProtocol {
 
 @MainActor
 class ViewModel: ObservableObject {
+    @AppStorage("isNotLoggedIn") private var isNotLoggedIn: Bool = true
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var wallets: [Wallet] = []
@@ -35,6 +36,7 @@ class ViewModel: ObservableObject {
             self.userSession = result.user
             await FetchUser()
             onSuccess()
+            isNotLoggedIn = false
         } catch {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
             onFailed(error.localizedDescription)

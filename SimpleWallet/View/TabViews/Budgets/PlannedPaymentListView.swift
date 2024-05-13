@@ -20,7 +20,7 @@ struct PlannedPaymentListView: View {
                             NavigationLink {
                                 PlannedPayments(plannedPayment: payment)
                             } label: {
-                                TransactionCardView(transaction: Transaction(id: payment.id, title: payment.paymentName, remarks: "", amount: payment.amount, dateAdded: payment.date, category: .expense, tintColor: payment.rawColor ?? TintColor(color: "Blue", value: .blue), txnCategory: payment.rawExpenseCategory ?? .others))
+                                TransactionCardView(transaction: Transaction(id: payment.id, userId: "", title: payment.paymentName, remarks: "", amount: payment.amount, dateAdded: payment.date, category: .expense, tintColor: payment.rawColor ?? TintColor(color: "Blue", value: .blue), txnCategory: payment.rawExpenseCategory ?? .others))
                             }
                             .buttonStyle(.plain)
                         }

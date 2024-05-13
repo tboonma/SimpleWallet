@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 class Transaction {
     // Properties
     var id: String
+    var userId: String
     var title: String
     var remarks: String
     var amount: Double
@@ -22,8 +23,9 @@ class Transaction {
     var tintColor: String
     var txnCategory: String
     
-    init(id: String, title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
+    init(id: String, userId: String, title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor, txnCategory: ExpenseCategory = .foodAndDrinks) {
         self.id = id
+        self.userId = userId
         self.title = title
         self.remarks = remarks
         self.amount = amount

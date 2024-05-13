@@ -53,6 +53,6 @@ struct TransactionCardView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Transaction.self, configurations: config)
     
-    let sampleTransaction = Transaction(id: "", title: "Test", remarks: "Description", amount: 0.0, dateAdded: .now, category: .income, tintColor: tints.randomElement()!)
+    let sampleTransaction = Transaction(id: "", userId: "", title: "Test", remarks: "Description", amount: 0.0, dateAdded: .now, category: .income, tintColor: tints.randomElement()!)
     return TransactionCardView(transaction: sampleTransaction).modelContainer(container)
 }

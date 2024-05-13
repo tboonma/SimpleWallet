@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 import Charts
 import SwiftData
 
@@ -25,24 +24,6 @@ struct Budgets: View {
                         LargeCardView(title: "Planned Payments", description: "Control Future Payments", iconName: "clock.arrow.circlepath", iconColor: .blue.opacity(0.5))
                     }
                     .buttonStyle(PlainButtonStyle())
-                    
-                    VStack {
-                        LineChart(data: futureTransactions.map { $0.amount },
-                                  title: "Future Transactions",
-                                  legend: "Amount",
-                                  style: ChartStyle.bar(chartColor: .blue, cornerRadius: 10),
-                                  darkModeStyle: ChartStyle.bar(chartColor: .blue, cornerRadius: 10),
-                                  valueSpecifier: "%.0f")
-                        .padding()
-                        
-                        BarChart(data: ChartData(values: transactions.map { $0.amount }),
-                                 title: "Transactions",
-                                 legend: "Amount",
-                                 style: ChartStyle.bar(chartColor: .green, cornerRadius: 10),
-                                 darkModeStyle: ChartStyle.bar(chartColor: .green, cornerRadius: 10),
-                                 valueSpecifier: "%.0f")
-                        .padding()
-                    }
                 }
                 .padding(.horizontal, 15)
             }

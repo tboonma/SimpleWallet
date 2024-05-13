@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     // Visibility Status
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
+    @AppStorage("isNotLoggedIn") private var isNotLoggedIn: Bool = true
     // Active Tab
     @State private var activeTab: Tab = .home
     @EnvironmentObject var viewModel: ViewModel
@@ -35,7 +36,7 @@ struct ContentView: View {
         .sheet(isPresented: $isFirstTime, content: {
             IntroScreen().interactiveDismissDisabled()
         })
-        .sheet(isPresented: $isLoginViewPresented, content: {
+        .sheet(isPresented: $isNotLoggedIn, content: {
             LoginView().interactiveDismissDisabled()
         })
         .onReceive(viewModel.$currentUser) { currentUser in

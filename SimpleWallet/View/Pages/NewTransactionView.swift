@@ -12,7 +12,9 @@ struct NewTransactionView: View {
     // Env Properties
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var viewModel: ViewModel
     var editTransaction: Transaction?
+    var editTransaction2: TransactionModel?
     @State var category: Category = .expense
     // View Properties
     @State private var title: String = ""
@@ -21,6 +23,7 @@ struct NewTransactionView: View {
     @State private var dateAdded: Date = .now
     @State private var expenseCategory: ExpenseCategory = .foodAndDrinks
     @State private var incomeCategory: IncomeCategory = .income
+    @State private var selectedWallet: Wallet?
     
     // Random Tint
     @State var tint: TintColor = tints.randomElement()!
@@ -38,6 +41,7 @@ struct NewTransactionView: View {
                 // Preview Transaction Card View
                 TransactionCardView(transaction: .init(
                     id: "",
+                    userId: "",
                     title: title.isEmpty ? "Title" : title,
                     remarks: remarks.isEmpty ? "Remarks" : remarks,
                     amount: amount,
@@ -61,6 +65,8 @@ struct NewTransactionView: View {
                     .background(.background, in: .rect(cornerRadius: 10))
                     .frame(width: 180, height: 180)
                 }
+                
+                WalletSelect()
                 
                 CustomSection("Title", "iPhone", value: $title)
                 
@@ -101,10 +107,18 @@ struct NewTransactionView: View {
         .background(.gray.opacity(0.15))
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Save", action: save)
+                Button("Save") {
+                    Task {
+                        await save()
+                    }
+                }
             }
         })
         .onAppear(perform: {
+            viewModel.getWallet()
+            
+            selectedWallet = viewModel.wallets.first
+            
             if let editTransaction {
                 // Load all existing data from transaction
                 title = editTransaction.title
@@ -123,18 +137,23 @@ struct NewTransactionView: View {
     }
     
     // Saving Date
-    func save() {
+    func save() async {
+        var id = NSUUID().uuidString
         if editTransaction != nil {
             editTransaction?.title = title
             editTransaction?.remarks = remarks
             editTransaction?.amount = amount
             editTransaction?.dateAdded = dateAdded
             editTransaction?.category = category.rawValue
-            
         } else {
             // Saving Item to SwiftData
-            let transaction = Transaction(id: "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)
+            let transaction = Transaction(id: id, userId: viewModel.currentUser?.id ?? "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)
             context.insert(transaction)
+        }
+        if editTransaction2 != nil {
+            await viewModel.updateTransaction(transaction: TransactionModel(id: editTransaction2?.id ?? "", userId: viewModel.currentUser?.id ?? "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category.rawValue, tintColor: tint.color, txnCategory: expenseCategory.rawValue))
+        } else {
+            await viewModel.createTransaction(transaction: TransactionModel(id: id, userId: viewModel.currentUser?.id ?? "", title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category.rawValue, tintColor: tint.color, txnCategory: expenseCategory.rawValue))
         }
         // Dismissing View
         dismiss()
@@ -247,25 +266,24 @@ struct NewTransactionView: View {
     @ViewBuilder
     func WalletSelect() -> some View {
         VStack(alignment: .leading, spacing: 10, content: {
-            Text("Category")
+            Text("Wallet")
                 .font(.caption)
                 .foregroundStyle(.gray)
                 .hSpacing(.leading)
             
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(ExpenseCategory.allCases, id: \.rawValue) { category in
+                    ForEach(viewModel.wallets, id: \.self) { wallet in
                         HStack {
-                            Image(systemName: category.icon)
-                            Text(category.rawValue)
+                            Image(systemName: wallet.iconName)
+                            Text(wallet.name)
                         }
                         .padding(.horizontal, 15)
                         .padding(.vertical, 5)
-                        .background(Capsule().fill(expenseCategory == category ? appTint : .white))
-                        .foregroundStyle(expenseCategory == category ? .white : .primary)
+                        .background(Capsule().fill(selectedWallet == wallet ? appTint : .white))
+                        .foregroundStyle(selectedWallet == wallet ? .white : .primary)
                         .onTapGesture {
-                            print(category)
-                            expenseCategory = category
+                            selectedWallet = wallet
                         }
                     }
                 }

@@ -10,6 +10,7 @@ import SwiftData
 
 struct Settings: View {
     // User Properties
+    @AppStorage("isNotLoggedIn") private var isNotLoggedIn: Bool = false
     @AppStorage("userName") private var userName: String = ""
     @AppStorage("isAppLockEnabled") private var isAppLockEnabled: Bool = false
     @AppStorage("lockWhenAppGoesBackground") private var lockWhenAppGoesBackground: Bool = false
@@ -50,6 +51,7 @@ struct Settings: View {
                     Button {
                         viewModel.signOut(onSuccess: {
                             isAccountSettingPresented = false
+                            isNotLoggedIn = true
                         })
                     } label: {
                         Image(systemName: "arrow.left.circle.fill")
